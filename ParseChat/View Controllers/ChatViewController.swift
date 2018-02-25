@@ -34,7 +34,7 @@ class ChatViewController: UIViewController, UITableViewDataSource {
         
         fetchMessages()
         
-        Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.fetchMessages), userInfo: nil, repeats: true)
+        Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(self.fetchMessages), userInfo: nil, repeats: true)
     }
     
     @objc func fetchMessages() {
@@ -77,24 +77,30 @@ class ChatViewController: UIViewController, UITableViewDataSource {
     
     @IBAction func sendButton(_ sender: Any) {
         print ("send button pressed")
-        let chatMessage = PFObject(className: "Message")
-        chatMessage["text"] = chatMessageField.text ?? ""
-        chatMessage["user"] = PFUser.current()
-        chatMessageField.text = "message here"
         
-        chatMessage.saveInBackground { (success, error) in
-            if success {
-                print("The message was saved!")
-                self.chatMessageField.text = ""
-            } else if let error = error {
-                print("Problem saving message: \(error.localizedDescription)")
+        if (chatMessageField.text?.isEmpty)!{
+            print ("empty chat field!")
+            let alertController = UIAlertController(title: "Cannot post an empty chat message.", message: "Please, try again.", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "OK", style: .default) { (action) in
+                self.viewDidLoad()
+            }
+        } else {
+            let chatMessage = PFObject(className: "Message")
+            chatMessage["text"] = chatMessageField.text ?? ""
+            chatMessage["user"] = PFUser.current()
+            chatMessageField.text = "message here"
+            
+            chatMessage.saveInBackground { (success, error) in
+                if success {
+                    print("The message was saved!")
+                    self.chatMessageField.text = ""
+                } else if let error = error {
+                    print("Problem saving message: \(error.localizedDescription)")
+                }
             }
         }
     }
-    
-    
-    
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return messages.count
     }
@@ -110,14 +116,16 @@ class ChatViewController: UIViewController, UITableViewDataSource {
             // No user found, set default username
             cell.usernameLabel.text = "🤖"
         }
-//cell.usernameLabel.text = "🤖"
-//        cell.chatLabel.text = "chat chat"
 
         return cell
     }
     
     @objc func didPullToRefresh(_ refreshControl: UIRefreshControl) {
         fetchMessages()
+    }
+    
+    @IBAction func logout(_ sender: Any) {
+        NotificationCenter.default.post(name: NSNotification.Name("didLogout"), object: nil)
     }
     
     override func didReceiveMemoryWarning() {
