@@ -32,24 +32,24 @@ The following **additional** user stories are implemented:
 
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
 
-1.
-2.
+1. Working with error exceptions. How best to handle them?
+2. What are some common errors and fixes we have encountered? I recently encounterd an error because I had a dangling link and am now more prepared to handle the same sort of error in the future.
 
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://raw.githubusercontent.com/RaquelFigueroa/ParseChat/master/images/chatDemo.gif' width='' alt='Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Notes
 
-Describe any challenges encountered while building the app.
+This app project went smoother than the week 4 assignmnet, but I was unclear about using the assigned Parse server. The initial server suggested was down the entire time I worked on this project. Thankfully, there have been questions about this in the discussion forum and I was able to find the alternate server credentials. That worked! Thanks to everyone who post questions to the discussion forum!
 
 ## License
 
-Copyright [yyyy] [name of copyright owner]
+Copyright 2018 R. Figueroa-Opperman
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
