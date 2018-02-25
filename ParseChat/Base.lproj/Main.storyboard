@@ -1,21 +1,80 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina5_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="ParseChat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ParseChat" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ed6-iN-PzN" userLabel="titleLabel">
+                                <rect key="frame" x="110" y="145" width="195" height="53"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="44"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="AfQ-Gs-qqP">
+                                <rect key="frame" x="110" y="218" width="185" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="XVF-Q3-JFO">
+                                <rect key="frame" x="110" y="268" width="185" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BzX-UY-KS0">
+                                <rect key="frame" x="257" y="318" width="38" height="30"/>
+                                <state key="normal" title="Login"/>
+                                <connections>
+                                    <action selector="onLogin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ycb-gL-1r5"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f7Y-1W-F8t">
+                                <rect key="frame" x="110" y="318" width="48" height="30"/>
+                                <state key="normal" title="Signup"/>
+                                <connections>
+                                    <action selector="onSignup:" destination="BYZ-38-t0r" eventType="touchUpInside" id="u0A-or-AVc"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="XVF-Q3-JFO" firstAttribute="leading" secondItem="AfQ-Gs-qqP" secondAttribute="leading" id="2iI-3Z-cWq"/>
+                            <constraint firstItem="AfQ-Gs-qqP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="110" id="65F-Tb-pgs"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="AfQ-Gs-qqP" secondAttribute="trailing" constant="119" id="95L-Df-jmV"/>
+                            <constraint firstItem="AfQ-Gs-qqP" firstAttribute="top" secondItem="Ed6-iN-PzN" secondAttribute="bottom" constant="20" id="DSh-mT-w6g"/>
+                            <constraint firstItem="BzX-UY-KS0" firstAttribute="trailing" secondItem="XVF-Q3-JFO" secondAttribute="trailing" id="HOR-wI-50i"/>
+                            <constraint firstItem="XVF-Q3-JFO" firstAttribute="trailing" secondItem="AfQ-Gs-qqP" secondAttribute="trailing" id="HaX-ZP-Cnz"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Ed6-iN-PzN" secondAttribute="trailing" constant="109" id="LqX-aa-zBp"/>
+                            <constraint firstItem="BzX-UY-KS0" firstAttribute="top" secondItem="XVF-Q3-JFO" secondAttribute="bottom" constant="20" id="M8T-fX-Klf"/>
+                            <constraint firstItem="XVF-Q3-JFO" firstAttribute="top" secondItem="AfQ-Gs-qqP" secondAttribute="bottom" constant="20" id="OCV-19-nh5"/>
+                            <constraint firstItem="Ed6-iN-PzN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="110" id="OO5-nN-ofr"/>
+                            <constraint firstItem="XVF-Q3-JFO" firstAttribute="top" secondItem="AfQ-Gs-qqP" secondAttribute="bottom" constant="20" id="PxW-bq-lCq"/>
+                            <constraint firstItem="XVF-Q3-JFO" firstAttribute="centerX" secondItem="AfQ-Gs-qqP" secondAttribute="centerX" id="Xff-vj-kRV"/>
+                            <constraint firstItem="Ed6-iN-PzN" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="125" id="azM-ru-mbU"/>
+                            <constraint firstItem="f7Y-1W-F8t" firstAttribute="top" secondItem="XVF-Q3-JFO" secondAttribute="bottom" constant="20" id="i2f-EE-JeT"/>
+                            <constraint firstItem="f7Y-1W-F8t" firstAttribute="leading" secondItem="XVF-Q3-JFO" secondAttribute="leading" id="xUH-5d-19o"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="passwordField" destination="XVF-Q3-JFO" id="bYk-rS-p4J"/>
+                        <outlet property="usernameField" destination="AfQ-Gs-qqP" id="N49-TT-4Sh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
