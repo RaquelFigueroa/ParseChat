@@ -17,10 +17,34 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
+//        Parse.initialize(with: ParseClientConfiguration(block: { (configuration: ParseMutableClientConfiguration) in
+//            configuration.applicationId = "CodePath-Parse"
+//            configuration.server = "http://45.79.67.127:1337/parse"
+//        }))
+        
         Parse.initialize(with: ParseClientConfiguration(block: { (configuration: ParseMutableClientConfiguration) in
             configuration.applicationId = "CodePath-Parse"
-            configuration.server = "http://45.79.67.127:1337/parse"
+            configuration.server = "https://parsechatcodepath.herokuapp.com/parse"
         }))
+        
+//        Parse.initialize(with: ParseClientConfiguration(block: { (configuration: ParseMutableClientConfiguration) -> Void in
+//                configuration.applicationId = "pseudo_Instagram"
+//                configuration.clientKey = "pirhjiow30y5jioehmksbu905hjowh"
+//                configuration.server = "https://pacific-anchorage-49623.herokuapp.com/parse"
+//            }))
+        
+        if let currentUser = PFUser.current() {
+            print("Welcome back \(currentUser.username!) 😀")
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            
+            let chatViewController = storyboard.instantiateViewController(withIdentifier: "chatNavigationController")
+            window?.rootViewController = chatViewController
+            
+            
+//            let testViewController = storyboard.instantiateViewController(withIdentifier: "testViewController")
+//            window?.rootViewController = testViewController
+        }
+
         
         return true
     }
