@@ -34,7 +34,7 @@ class ChatViewController: UIViewController, UITableViewDataSource {
         
         fetchMessages()
         
-        Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(self.fetchMessages), userInfo: nil, repeats: true)
+        Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.fetchMessages), userInfo: nil, repeats: true)
     }
     
     @objc func fetchMessages() {
